@@ -21,6 +21,14 @@ body {
   cursor: pointer;
 }
 
+.recetas a {
+  display: flex;
+}
+
+.card h2 {
+  color: black;
+}
+
 .card div {
   margin-top: auto;
 }
@@ -33,4 +41,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
+}
+
+a {
+  text-decoration: none;
 }
