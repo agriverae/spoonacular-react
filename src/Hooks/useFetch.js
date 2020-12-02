@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 
+const initValue = {
+  isLoading: true,
+  error: null,
+  data: null,
+};
+
 const useFetch = (url) => {
-  const [respuesta, setRespuesta] = useState({
-    isLoading: true,
-    error: null,
-    data: null,
-  });
+  const [respuesta, setRespuesta] = useState(initValue);
 
   useEffect(() => {
     if (respuesta.isLoading) {
@@ -30,7 +32,11 @@ const useFetch = (url) => {
     }
   }, [respuesta.isLoading, url]);
 
-  return respuesta;
+  const recargarRespuesta = () => {
+    setRespuesta(initValue);
+  };
+
+  return [respuesta, recargarRespuesta];
 };
 
 export default useFetch;

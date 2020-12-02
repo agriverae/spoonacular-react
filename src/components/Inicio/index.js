@@ -4,7 +4,7 @@ import Recetas from "../Recetas";
 import useFetch from "../../Hooks/useFetch";
 
 const Inicio = () => {
-  const traerRecetas = useFetch(
+  const [traerRecetas, recargarRecetas] = useFetch(
     "https://api.spoonacular.com/recipes/random?number=20&apiKey=57d002347b7c4eedbbef44a86f81b009"
   );
 
@@ -18,6 +18,9 @@ const Inicio = () => {
 
   return (
     <div className="inicio">
+      <p>
+        Recargar Página <button onClick={recargarRecetas}>Click Aquí</button>
+      </p>
       <Recetas recetas={traerRecetas.data.recipes} />
     </div>
   );
